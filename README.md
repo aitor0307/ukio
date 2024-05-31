@@ -16,3 +16,6 @@ Now run the SQL to create a new column PLANET
 Then adapt the models: booking needs to make calculations when processing the cost and apartment needs a new column
 Finally create the endpoint to create apartments
 ```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "PHOBOS", "address": "Olympus 34", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "MARS"}}' http://localhost:4000/api/apartments```
+```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "IO", "address": "Galileo 45", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "JUPITER"}}' http://localhost:4000/api/apartments```
+```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "Europa", "address": "Galileo 44", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "JUPITER"}}' http://localhost:4000/api/apartments```
+```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "Titan", "address": "Methane lake 1", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "SATURN"}}' http://localhost:4000/api/apartments```
