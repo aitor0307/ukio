@@ -13,17 +13,19 @@ defmodule Ukio.Bookings.Handlers.BookingCreator do
 
   defp generate_booking_data(apartment, check_in, check_out) do
     utility_cost = calculate_utilities(apartment)
+    IO.inspect(round(utility_cost))
     %{
       apartment_id: apartment.id,
       check_in: check_in,
       check_out: check_out,
       monthly_rent: apartment.monthly_price,
-      utilities: utility_cost,
+      utilities: round(utility_cost),
       deposit: apartment.monthly_price
     }
   end
 
   defp calculate_utilities(apartment) do
+    IO.puts("Calculate utilities for planet: ")
     IO.inspect(apartment.planet)
     case apartment.planet do
       "MARS" ->
