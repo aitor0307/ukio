@@ -15,6 +15,13 @@ defmodule UkioWeb.BookingJSON do
     %{data: data(booking)}
   end
 
+  @doc """
+  Renders a non bookable.
+  """
+  def non_bookable(_) do
+    %{data: "Non bookable"}
+  end
+
   defp data(%Booking{} = booking) do
     %{
       id: booking.id,
