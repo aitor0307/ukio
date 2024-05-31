@@ -27,7 +27,7 @@ defmodule UkioWeb.BookingController do
       {booking.check_in, booking.check_out}
     end)
 
-    date_check = check_dates(selected_columns)
+    date_check = check_dates(selected_columns, [Date.utc_today()])
 
     if date_check do
       IO.puts("The date falls within one of the booking date ranges.")
@@ -38,7 +38,7 @@ defmodule UkioWeb.BookingController do
     render(conn, :index, bookings: bookings)
   end
 
-  def check_dates(date_range, dates_to_check) do
+  defp check_dates(date_range, dates_to_check) do
     #date_to_check = Date.utc_today()
     # check if `date_to_check` falls within any of the booking date ranges
     Enum.any?(dates_to_check, fn date_to_check ->
@@ -59,13 +59,12 @@ defmodule UkioWeb.BookingController do
 
     IO.puts("Check if dates are booked: #{inspect({booking_params['check_in'], booking_params['check_out']})}")
 
-    is_booked = check_dates(selected_columns,{booking_params["check_in"], booking_params["check_out"]})
+    is_booked = check_dates(selected_columns,[booking_params['check_in'], booking_params['check_out']])
 
     if is_booked do
       IO.puts("The date falls within one of the booking date ranges.")
       conn
       |> put_status(:conflict)
-      |> render_error("The date falls within one of the booking date ranges.")
     else
       IO.puts("The date does not fall within any of the booking date ranges. Create the booking.")
       with {:ok, %Booking{} = booking} <- BookingCreator.create(booking_params) do
