@@ -9,4 +9,5 @@ defmodule UkioWeb.ApartmentController do
     apartments = Apartments.list_apartments()
     render(conn, :index, apartments: apartments)
   end
+
 end

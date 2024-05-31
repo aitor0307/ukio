@@ -7,6 +7,7 @@ defmodule Ukio.Apartments do
   alias Ukio.Repo
 
   alias Ukio.Apartments.Apartment
+  alias Ukio.Apartments.Booking
 
   @doc """
   Returns the list of apartments.
@@ -36,6 +37,21 @@ defmodule Ukio.Apartments do
 
   """
   def get_apartment!(id), do: Repo.get!(Apartment, id)
+
+  @doc """
+  Gets a single apartments bookings.
+
+  Raises `Ecto.NoResultsError` if the Apartment does not exist.
+
+  ## Examples
+
+      iex> list_bookings()
+      [%Booking{}, ...]
+
+  """
+  def get_apartment_bookings!(id) do
+    Repo.all(from(b in Booking, where: b.apartment_id == ^id))
+  end
 
   @doc """
   Creates a apartment.
@@ -101,8 +117,6 @@ defmodule Ukio.Apartments do
   def change_apartment(%Apartment{} = apartment, attrs \\ %{}) do
     Apartment.changeset(apartment, attrs)
   end
-
-  alias Ukio.Apartments.Booking
 
   @doc """
   Returns the list of bookings.

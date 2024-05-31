@@ -25,6 +25,7 @@ defmodule UkioWeb.Router do
 
     get "/apartments", ApartmentController, :index
     get "/allbookings", BookingController, :index
+    get "/apartments/:id/bookings", BookingController, :apartmentbookings
     resources "/bookings", BookingController, [:show, :create]
   end
 

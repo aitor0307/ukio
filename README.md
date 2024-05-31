@@ -1,10 +1,9 @@
 # ukio
 Ukio test.
 
-I try to create a booking but it fails.
+I try to create a booking:
 ```curl -X POST -d '{"booking":{"check_in": "2024-06-26", "check_out": "2024-07-26", "apartment_id": 2}}' -H '{"Content-Type": "application/json"}' http://localhost:4000/api/bookings```
-
-Phoenix.ActionClauseError at POST /api/bookings
+```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"booking":{"check_in": "2024-06-26", "check_out": "2024-07-26", "apartment_id": 2}}' http://localhost:4000/api/bookings```
 
 
 
