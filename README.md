@@ -10,5 +10,9 @@ First I created an endpoint to find the bookings of an apartment, using GET /apa
 
 Then, we can try to create a booking within any of the dates and it will throw a 401 (unauthorized) error.
 
+–––––––––––––––––
 
-
+Now run the SQL to create a new column PLANET
+Then adapt the models: booking needs to make calculations when processing the cost and apartment needs a new column
+Finally create the endpoint to create apartments
+```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "PHOBOS", "address": "Olympus 34", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "MARS"}}' http://localhost:4000/api/apartments```

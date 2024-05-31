@@ -11,7 +11,9 @@ defmodule UkioWeb.ApartmentJSON do
   @doc """
   Renders a single apartment.
   """
-  def show(%{apartment: apartment}) do
+  def show(%{new_apartment: {:ok, apartment}}) do
+    IO.puts("Show within apartmentjson")
+    IO.inspect(apartment)
     %{data: data(apartment)}
   end
 
@@ -22,7 +24,8 @@ defmodule UkioWeb.ApartmentJSON do
       address: apartment.address,
       zip_code: apartment.zip_code,
       monthly_price: apartment.monthly_price,
-      square_meters: apartment.square_meters
+      square_meters: apartment.square_meters,
+      planet: apartment.planet
     }
   end
 end
