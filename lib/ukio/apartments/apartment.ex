@@ -8,6 +8,7 @@ defmodule Ukio.Apartments.Apartment do
     field :name, :string
     field :square_meters, :integer
     field :zip_code, :string
+    field :planet, :string
 
     timestamps()
   end
@@ -16,6 +17,6 @@ defmodule Ukio.Apartments.Apartment do
   def changeset(apartment, attrs) do
     apartment
     |> cast(attrs, [:name, :address, :zip_code, :monthly_price, :square_meters])
-    |> validate_required([:name, :address, :zip_code, :monthly_price, :square_meters])
+    |> validate_required([:name, :address, :zip_code, :monthly_price, :planet, :square_meters])
   end
 end
