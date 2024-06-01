@@ -35,7 +35,7 @@ defmodule UkioWeb.BookingControllerTest do
                "id" => ^id,
                "check_in" => "2023-03-26",
                "check_out" => "2023-03-26",
-               "deposit" => 100_000,
+               "deposit" => 250_000,
                "monthly_rent" => 250_000,
                "utilities" => 20000
              } = json_response(conn, 200)["data"]
