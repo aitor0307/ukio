@@ -84,6 +84,25 @@ defmodule Ukio.ApartmentsTest do
       apartment = apartment_fixture()
       assert %Ecto.Changeset{} = Apartments.change_apartment(apartment)
     end
+
+    test "create_apartment/17 with valid data creates a apartment" do
+      valid_attrs = %{
+        address: "LAPD road",
+        monthly_price: 420,
+        name: "Wineville",
+        square_meters: 300,
+        zip_code: "08001",
+        planet: "EARTH"
+      }
+
+      assert {:ok, %Apartment{} = apartment} = Apartments.create_apartment(valid_attrs)
+      assert apartment.address == "LAPD road"
+      assert apartment.monthly_price == 420
+      assert apartment.name == "Wineville"
+      assert apartment.square_meters == 300
+      assert apartment.zip_code == "08001"
+      assert apartment.planet == "EARTH"
+    end
   end
 
   describe "bookings" do
