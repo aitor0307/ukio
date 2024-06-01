@@ -2,7 +2,7 @@
 Ukio test.
 
 I try to create a booking:
-```curl -X POST -d '{"booking":{"check_in": "2024-06-26", "check_out": "2024-07-26", "apartment_id": 2}}' -H '{"Content-Type": "application/json"}' http://localhost:4000/api/bookings```
+```curl -X POST -d '{"booking":{"check_in": "2024-06-26", "check_out": "2024-07-26", "apartment_id": 2}}' -H 'Content-Type: application/json' http://localhost:4000/api/bookings```
 ```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"booking":{"check_in": "2024-06-26", "check_out": "2024-07-26", "apartment_id": 2}}' http://localhost:4000/api/bookings```
 ```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"booking":{"check_in": "2024-08-26", "check_out": "2024-09-26", "apartment_id": 2}}' http://localhost:4000/api/bookings```
 
@@ -19,3 +19,14 @@ Finally create the endpoint to create apartments
 ```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "IO", "address": "Galileo 45", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "JUPITER"}}' http://localhost:4000/api/apartments```
 ```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "Europa", "address": "Galileo 44", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "JUPITER"}}' http://localhost:4000/api/apartments```
 ```curl -X POST -H "accept: application/json" -H "Content-Type: application/json" -d '{"apartment":{"name": "Titan", "address": "Methane lake 1", "zip_code": "09991", "monthly_price": 50000, "square_meters": 500, "planet": "SATURN"}}' http://localhost:4000/api/apartments```
+
+
+Now create new bookings:
+```curl -X POST -d '{"booking":{"check_in": "2024-06-26", "check_out": "2024-07-26", "apartment_id": 16}}' -H 'Content-Type: application/json' http://localhost:4000/api/bookings```
+Non bookable:
+```curl -X POST -d '{"booking":{"check_in": "2024-06-27", "check_out": "2024-07-25", "apartment_id": 16}}' -H 'Content-Type: application/json' http://localhost:4000/api/bookings```
+```curl -X POST -d '{"booking":{"check_in": "2024-06-22", "check_out": "2024-07-25", "apartment_id": 16}}' -H 'Content-Type: application/json' http://localhost:4000/api/bookings```
+```curl -X POST -d '{"booking":{"check_in": "2024-06-30", "check_out": "2024-07-30", "apartment_id": 16}}' -H 'Content-Type: application/json' http://localhost:4000/api/bookings```
+```curl -X POST -d '{"booking":{"check_in": "2024-08-22", "check_out": "2024-08-25", "apartment_id": 16}}' -H 'Content-Type: application/json' http://localhost:4000/api/bookings```
+
+```curl -X POST -d '{"booking":{"check_in": "2026-08-22", "check_out": "2026-08-25", "apartment_id": 16}}' -H 'Content-Type: application/json' http://localhost:4000/api/bookings```
